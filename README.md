@@ -1,2 +1,2 @@
-# BLM
-Daniel and Brandon's BLM awareness project.  
+# BANKER
+Daniel and Brandon's Poker Banker project.  
