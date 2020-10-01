@@ -103,6 +103,12 @@ body {
     <button onclick="getNumbers()">Calculate!</button>
 </div>
 
+<div class="rightside">
+  <p>Result<p>
+  <p id="demo"></p>
+  <p id="demo1"></p>
+</div>
+
 <script>
   var players;
   var numbersArray;
@@ -132,8 +138,6 @@ body {
     var losersNames = findLosersNamesArray(losersDict, losersNumbers);
     result = calculate(winnersNames, losersNames, winnersNumbers, losersNumbers);
     display(result);
-    //document.getElementById("demo1").innerHTML = JSON.stringify(result, null, numbersArray.length);
-
   }
 
   function display(result) {
@@ -148,7 +152,7 @@ body {
       i++;
     }
     var ledger = new Array(winnerDisplay.length);
-    var finances = document.getElementById("demo4");
+    var finances = document.getElementById("demo1");
     finances.innerHTML = "";
     for (j = 0; j < winnerDisplay.length; j++) {
       ledger[j] = winnerDisplay[j] + ": " + loserDisplay[j];
@@ -280,15 +284,6 @@ body {
   }
 
   </script>
-
-<div class="rightside">
-    <p>Result<p>
-    <p id="demo"></p>
-    <p id="demo1"></p>
-    <p id="demo2"></p>
-    <p id="demo3"></p>
-    <p id="demo4"></p>
-</div>
 
 </body>
 </html>
