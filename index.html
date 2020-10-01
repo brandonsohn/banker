@@ -116,28 +116,44 @@ body {
     numbersArray = numbers.map(Number);
     algorithm();
   }
+
+  var result;
   function algorithm() {
-    document.getElementById("demo").innerHTML = players;
-    document.getElementById("demo1").innerHTML = numbersArray;
     if (checkValid(numbersArray) == false) {
-      document.getElementById("demo2").innerHTML = "Numbers do not add up to 0, try again.";
+      document.getElementById("demo").innerHTML = "Numbers do not add up to 0, try again.";
+      return;
     }
     sortNumbersNames(numbersArray, players);
-    document.getElementById("demo3").innerHTML = players;
-    document.getElementById("demo4").innerHTML = numbersArray;
     winnersDict = findWinners(players, numbersArray);
-    document.getElementById("demo5").innerHTML = JSON.stringify(winnersDict, null, numbersArray.length);
     losersDict = findLosers(players, numbersArray);
-    document.getElementById("demo6").innerHTML = JSON.stringify(losersDict, null, numbersArray.length);
     var winnersNumbers = findWinnersArray(players, numbersArray);
-    document.getElementById("demo7").innerHTML = winnersNumbers;
     var winnersNames = findWinnersNamesArray(winnersDict, winnersNumbers);
-    document.getElementById("demo8").innerHTML = winnersNames;
-    var losersNumbers = findLosersArray(players, numbersArray)
-    document.getElementById("demo9").innerHTML = losersNumbers;
+    var losersNumbers = findLosersArray(players, numbersArray);
     var losersNames = findLosersNamesArray(losersDict, losersNumbers);
-    document.getElementById("demo10").innerHTML = losersNames;
-    calculate(winnersNames, losersNames, winnersNumbers, losersNumbers);
+    result = calculate(winnersNames, losersNames, winnersNumbers, losersNumbers);
+    display(result);
+    //document.getElementById("demo1").innerHTML = JSON.stringify(result, null, numbersArray.length);
+
+  }
+
+  function display(result) {
+    var length = Object.keys(result).length;
+    var i = 0;
+    var j;
+    var winnerDisplay = new Array(length);
+    var loserDisplay = new Array(length);
+    for (var key in result) {
+      winnerDisplay[i] = key;
+      loserDisplay[i] = result[key];
+      i++;
+    }
+    var ledger = new Array(winnerDisplay.length);
+    var finances = document.getElementById("demo4");
+    finances.innerHTML = "";
+    for (j = 0; j < winnerDisplay.length; j++) {
+      ledger[j] = winnerDisplay[j] + ": " + loserDisplay[j];
+      finances.innerHTML += ledger[j] + "<br>";
+    }
   }
   function sortNumbersNames(numbersArray, players) {
     var i;
@@ -182,7 +198,6 @@ body {
         i++;
       }
     }
-    document.getElementById("demo13").innerHTML = JSON.stringify(result, null, losersNames.length);
     return result;
   }
   function findWinnersNamesArray(winnersDict, winnersNumbers) {
@@ -273,18 +288,6 @@ body {
     <p id="demo2"></p>
     <p id="demo3"></p>
     <p id="demo4"></p>
-    <p id="demo5"></p>
-    <p id="demo6"></p>
-    <p id="demo7"></p>
-    <p id="demo8"></p>
-    <p id="demo9"></p>
-    <p id="demo10"></p>
-    <p id="demo11"></p>
-    <p id="demo12"></p>
-    <p id="demo13"></p>
-    <p id="demo14"></p>
-    <p id="demo15"></p>
-    <p id="demo16"></p>
 </div>
 
 </body>
