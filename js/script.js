@@ -1,5 +1,12 @@
   var count = 4;
 
+  function resetRows() {
+    for (i = 0; i <= count; i ++) {
+      document.getElementById("name" + i).value = '';
+      document.getElementById("pl" + i).value = '';
+    }
+  }
+
   function addNewRows() {
     count++;
     var para = document.createElement("p"); // This code creates a new <p> element
