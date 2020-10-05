@@ -37,7 +37,7 @@ body {
 }
 
 /* Leftside of webpage */
-.leftside {
+#leftside {
   float: left;
   margin-top: 30px;
   margin-left: 50px;
