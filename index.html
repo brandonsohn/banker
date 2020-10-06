@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Poker Banker</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poker Banker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+  <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 
 </head>
 <body>
-
-<div class="topnav">
-  <a href="#">About us</a>
-  <a href="#">Banker</a>
-</div>
-
-<div class="header">
-  <h2>Poker Banker</h2>
-</div>
-
-<div id="leftside">
-    <p>Input names and P/L</p>
-    <p><span><input type="text" id="name0" placeholder="insert player name..."> <input type="float" id="pl0" placeholder="insert P/L of player..."> </span> </p>
-    <p><span><input type="text" id="name1" placeholder="player 2">  <input type="float" id="pl1" placeholder="P/L player 2"> </span> </p>
-    <p><span><input type="text" id="name2" placeholder="player 3">  <input type="float" id="pl2" placeholder="P/L player 3"> </span> </p>
-    <p><span><input type="text" id="name3" placeholder="player 4">  <input type="float" id="pl3" placeholder="P/L player 4"> </span> </p>
-    <p><span><input type="text" id="name4" placeholder="player 5">  <input type="float" id="pl4" placeholder="P/L player 5"> </span> </p>
-    <p id="p1"></p>
-    <p><span>
-      <button onclick="storeArrays()">Calculate!</button>  
-      <button onclick="addOneRow()">Add a row</button> 
-      <button onclick="resetRows()">Reset rows</button> 
-      <button onclick="addFiveRows()">Add 5 rows</button> 
-    </span> </p>
+  <div class="topnav">
+    <a href="#">About us</a>
+    <a href="#">Banker</a>
   </div>
-  
-<div class="rightside">
-  <p>Result<p>
-  <p id="errorCheck"></p>
-  <p id="result"></p>
-</div>
 
-<script src="js/script.js"></script>
+  <div class="header">
+    <h2>Poker Banker</h2>
+  </div>
+
+  <div id="leftside">
+      <p>Input names and P/L</p>
+      <p><span><input type="text" id="name0" placeholder="insert player name..."> <input type="float" id="pl0" placeholder="insert P/L of player..."> </span> </p>
+      <p><span><input type="text" id="name1" placeholder="player 2">  <input type="float" id="pl1" placeholder="P/L player 2"> </span> </p>
+      <p><span><input type="text" id="name2" placeholder="player 3">  <input type="float" id="pl2" placeholder="P/L player 3"> </span> </p>
+      <p><span><input type="text" id="name3" placeholder="player 4">  <input type="float" id="pl3" placeholder="P/L player 4"> </span> </p>
+      <p><span><input type="text" id="name4" placeholder="player 5">  <input type="float" id="pl4" placeholder="P/L player 5"> </span> </p>
+      <p id="p1"></p>
+      <p><span>
+        <button onclick="storeArrays()">Calculate!</button>  
+        <button onclick="addOneRow()">Add a row</button> 
+        <button onclick="resetRows()">Reset rows</button> 
+        <button onclick="addFiveRows()">Add 5 rows</button> 
+      </span> </p>
+    </div>
+    
+  <div class="rightside">
+    <p>Result<p>
+    <p id="errorCheck"></p>
+    <p id="result"></p>
+  </div>
+
+  <script src="js/script.js"></script>
 
 </body>
 </html>
