@@ -7,26 +7,59 @@
     }
   }
 
-  function addNewRows() {
+  function addOneRow() {
     count++;
     var para = document.createElement("p"); // This code creates a new <p> element
     var node = document.createElement("INPUT"); //To add text to the <p> element, you must create a text node first.
     node.setAttribute("type", "text");
     node.setAttribute("id", "name" + count);
     node.setAttribute("placeholder", "player" + " " + (count+1));
-    
+
+    var space = document.createElement("STRING");               // Create a <p> element
+    space.innerText = " ";               // Insert text   
+
     var node1 = document.createElement("INPUT"); //To add text to the <p> element, you must create a text node first.
     node1.setAttribute("type", "text");
     node1.setAttribute("id", "pl" + count);
+
+    //node2.setAttribute(" ");
     
     node1.setAttribute("placeholder", "P/L player" + " " + (count+1));
     para.appendChild(node); // Then you must append the text node to the <p> element:
+    para.appendChild(space);; 
     para.appendChild(node1);
     //Finally you must append the new element to an existing element.
     var element = document.getElementById("leftside"); // This code finds an existing element
     var child = document.getElementById("p1"); //This code appends the new element to the existing element
     element.insertBefore(para,child);
     
+  }
+
+  function addFiveRows() {
+    for (var j = 0; j <= 4; j++) {
+      count++;
+      var para = document.createElement("p"); // This code creates a new <p> element
+      var node = document.createElement("INPUT"); //To add text to the <p> element, you must create a text node first.
+      node.setAttribute("type", "text");
+      node.setAttribute("id", "name" + count);
+      node.setAttribute("placeholder", "player" + " " + (count+1));
+      
+      var space = document.createElement("STRING");               // Create a <p> element
+      space.innerText = " ";               // Insert text   
+
+      var node1 = document.createElement("INPUT"); //To add text to the <p> element, you must create a text node first.
+      node1.setAttribute("type", "text");
+      node1.setAttribute("id", "pl" + count);
+      
+      node1.setAttribute("placeholder", "P/L player" + " " + (count+1));
+      para.appendChild(node); // Then you must append the text node to the <p> element:
+      para.appendChild(space);;
+      para.appendChild(node1);
+      //Finally you must append the new element to an existing element.
+      var element = document.getElementById("leftside"); // This code finds an existing element
+      var child = document.getElementById("p1"); //This code appends the new element to the existing element
+      element.insertBefore(para,child);
+    }
   }
 
   var players; //used to store the player names
