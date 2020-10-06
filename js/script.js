@@ -14,9 +14,11 @@
     node.setAttribute("type", "text");
     node.setAttribute("id", "name" + count);
     node.setAttribute("placeholder", "player" + " " + (count+1));
+    
     var node1 = document.createElement("INPUT"); //To add text to the <p> element, you must create a text node first.
     node1.setAttribute("type", "text");
     node1.setAttribute("id", "pl" + count);
+    
     node1.setAttribute("placeholder", "P/L player" + " " + (count+1));
     para.appendChild(node); // Then you must append the text node to the <p> element:
     para.appendChild(node1);
@@ -24,6 +26,7 @@
     var element = document.getElementById("leftside"); // This code finds an existing element
     var child = document.getElementById("p1"); //This code appends the new element to the existing element
     element.insertBefore(para,child);
+    
   }
 
   var players; //used to store the player names
@@ -32,7 +35,7 @@
   function storeArrays() {
     addPlayers();
     addProfitLosses();
-    profitLosses = profitLosses.map(Number); //converts the array of string of numbers into an arary of numbers
+    profitLosses = profitLosses.map(Number); //converts the array of string of numbers into an array of numbers
     runAlgorithm();
   }
 
@@ -57,10 +60,12 @@
   function runAlgorithm() {
     if (addToZero() == false) { //checks if all the profit losses add up to zero
       document.getElementById("errorCheck").innerHTML = "Numbers do not add up to 0, try again."; //prints string if it doesn't add to zero
-      return;
-    } else {
+      return; // .innerHTML prints to div in HTML
+    } 
+    else {
       document.getElementById("errorCheck").innerHTML = ""
     }
+
     sortNumbersPlayers(); //sorts profitLosses array in ascending order and rearranges players array accordingly
     winnersDict = findWinners(); //makes a list of winners in form of {player name:profit} 
     losersDict = findLosers(); //makes a list of losers in form of {players:loss} 
@@ -168,26 +173,46 @@
     return losersNamesTwo;
   }
   
+
+
+  // winnersNames is an array of the names of winners
+  // their respective earnings is the respective index in winnersNumbers
+  // vice versa for losersNames and losesNumbers
+
   function calculate(winnersNames, losersNames, winnersNumbers, losersNumbers) {
-    var result = {};
-    var i = 0;
-    var j = 0;
-    var loserString = [];
+    var result = {}; 
+    // i is loser's index
+    var i = 0; 
+
+    // j is winner's index
+    var j = 0; 
+    //var loserString = [];
+    var winnerString; 
     while (i < losersNames.length && j < winnersNames.length) {
+      
+      // 
       if (losersNumbers[i] + winnersNumbers[j] == 0) {
-        loserString.push(losersNames[i].concat(' ', -losersNumbers[i].toString(10)));
-        result[winnersNames[j]] = loserString;
-        loserString = [];
+        //loserString.push(losersNames[i].concat(' ', -losersNumbers[i].toString(10)));
+        winnerString += losersNames[i] + " " + -losersNumbers[i];
+        result[winnersNames[j]] = winnerString;
+        winnerString = "";
         i++;
         j++;
+
+      //
       } else if ((losersNumbers[i] + winnersNumbers[j]) < 0) {
         losersNumbers[i] = losersNumbers[i] + winnersNumbers[j];
-        loserString.push(losersNames[i].concat(' ', winnersNumbers[j].toString(10)));
-        result[winnersNames[j]] = loserString;
-        loserString = [];
+
+        // loserString.push(losersNames[i].concat(' ', winnersNumbers[j].toString(10)));
+        winnerString += losersNames[i] + " " + winnersNumbers[j]
+        result[winnersNames[j]] = winnerString;
+        winnerString = "";
         j++;
+
+      // 
       } else if (losersNumbers[i] + winnersNumbers[j] > 0) {
-        loserString.push(losersNames[i].concat(' ', -losersNumbers[i].toString(10)));
+        // winnerString.push(losersNames[i].concat(' ', -losersNumbers[i].toString(10)));
+        winnerString += losersNames[i] + " " + -losersNumbers[i];
         winnersNumbers[j] = winnersNumbers[j] + losersNumbers[i];
         i++;
       }
@@ -201,16 +226,25 @@
     var j;
     var winnerDisplay = new Array(length);
     var loserDisplay = new Array(length);
+
     for (var key in result) {
       winnerDisplay[i] = key;
       loserDisplay[i] = result[key];
       i++;
     }
+
+    //ledge is a makeshift output box, can be taken out if values are 
     var ledger = new Array(winnerDisplay.length);
     var finances = document.getElementById("result"); //we are going to print finances at "result" (line 109)
+
     finances.innerHTML = ""; //initialize finances to be an empty string
+    
     for (j = 0; j < winnerDisplay.length; j++) {
       ledger[j] = winnerDisplay[j] + ": " + loserDisplay[j]; // we are going to add ledger[j] to the string
       finances.innerHTML += ledger[j] + "<br>"; // add ledger[j] to finances then break line
     }
   }
+
+
+
+
