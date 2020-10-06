@@ -233,7 +233,7 @@
       i++;
     }
 
-    //ledge is a makeshift output box, can be taken out if values are 
+    //ledger is a makeshift output box, can be taken out if values are 
     var ledger = new Array(winnerDisplay.length);
     var finances = document.getElementById("result"); //we are going to print finances at "result" (line 109)
 
