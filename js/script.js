@@ -193,7 +193,7 @@
       // 
       if (losersNumbers[i] + winnersNumbers[j] == 0) {
         //loserString.push(losersNames[i].concat(' ', -losersNumbers[i].toString(10)));
-        winnerString += losersNames[i] + " " + "-" + losersNumbers[i];
+        winnerString += losersNames[i] + " " + -losersNumbers[i];
         result[winnersNames[j]] = winnerString;
         winnerString = "";
         i++;
