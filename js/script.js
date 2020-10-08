@@ -218,7 +218,7 @@
     // j is winner's index
     var j = 0; 
     //var loserString = [];
-    var winnerString; 
+    var winnerString = ""; 
     while (i < losersNames.length && j < winnersNames.length) {
       
       // 
