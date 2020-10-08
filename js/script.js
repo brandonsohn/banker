@@ -21,8 +21,6 @@
     var node1 = document.createElement("INPUT"); //To add text to the <p> element, you must create a text node first.
     node1.setAttribute("type", "text");
     node1.setAttribute("id", "pl" + count);
-
-    //node2.setAttribute(" ");
     
     node1.setAttribute("placeholder", "P/L player" + " " + (count+1));
     para.appendChild(node); // Then you must append the text node to the <p> element:
