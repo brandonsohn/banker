@@ -243,7 +243,7 @@
       // 
       } else if (losersNumbers[i] + winnersNumbers[j] > 0) {
         // winnerString.push(losersNames[i].concat(' ', -losersNumbers[i].toString(10)));
-        winnerString += losersNames[i] + " " + -losersNumbers[i];
+        winnerString += losersNames[i] + " " + -losersNumbers[i] + " ";
         winnersNumbers[j] = winnersNumbers[j] + losersNumbers[i];
         i++;
       }
@@ -275,7 +275,4 @@
       finances.innerHTML += ledger[j] + "<br>"; // add ledger[j] to finances then break line
     }
   }
-
-
-
 
